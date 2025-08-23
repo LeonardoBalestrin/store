@@ -1,0 +1,10 @@
+<h1><%= t "Products" %></h1>
+
+<%= button_to link_to "New product", new_product_path if authenticated? %>
+<div id="products">
+  <% @products.each do |product| %>
+    <div>
+      <%= link_to product.name, product%>
+    </div>
+  <% end %>
+</div>
