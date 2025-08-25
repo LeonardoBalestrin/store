@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product
     else
-      render :new, status: :unprocessable_entity
+      render :new, alert: "All fields are necessary!", status: :unprocessable_content
     end
   end
   def edit
@@ -23,14 +23,14 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, alert: "All fields are necessary!", status: :unprocessable_content
     end
   end
   def destroy
     if @product.destroy
       redirect_to products_path
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

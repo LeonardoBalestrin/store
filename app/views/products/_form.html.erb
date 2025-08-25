@@ -1,7 +1,7 @@
 <%= form_with  model: product, class: "form" do |form| %>
   <div>
     <%= form.label :name %>
-    <%= form.text_field :name, class:"form-field-full" %>
+    <%= form.text_field :name, class:"form-field-full", required: true,title:"required" %>
   </div>
 
   <div class="form-row">
@@ -12,7 +12,7 @@
     
     <div class="form-field-flex">
       <%= form.label :inventory_count %>
-      <%= form.number_field :inventory_count %>
+      <%= form.number_field :inventory_count, required: true,title:"required" %>
     </div>
 
   </div>
