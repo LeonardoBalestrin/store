@@ -23,10 +23,12 @@
   </head>
 
   <body>
-    <div class="notice"><%= notice %></div>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+    <% unless notice.nil? %>
+      <div class="notice"><%= notice %></div> 
+    <% end %>
+    <nav class="nav-rails">
+      <%= link_to "Home", root_path, class:"nav-link" %>
+      <%= button_to "Log out", session_path, method: :delete, class:"nav-link" if authenticated? %>
       <%= link_to "Login", new_session_path unless authenticated? %>
     </nav>
     <main>
