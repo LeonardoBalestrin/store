@@ -1,0 +1,33 @@
+<h1>Cadastro de Novo Usuário</h1>
+
+<%= form_with model: @user, url: users_path, local: true, class: "form" do |form| %>
+  <% if @user.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(@user.errors.count, "error") %> Error message:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <%= form.label :email_address, "E-mail" %>
+    <%= form.email_field :email_address, required: true %>
+  </div>
+
+  <div class="form-field">
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password, required: true %>
+  </div>
+
+  <div class="form-field">
+    <%= form.label :password_confirmation, "Password Confirmation" %>
+    <%= form.password_field :password_confirmation, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit "Criar Conta", class: "btn btn-primary" %>
+  </div>
+<% end %>
