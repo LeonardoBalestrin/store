@@ -17,6 +17,11 @@
     <%= form.email_field :email_address, required: true %>
   </div>
 
+  <div class="form-field-flex">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
   <div class="form-field">
     <%= form.label :password, "Password" %>
     <%= form.password_field :password, required: true %>

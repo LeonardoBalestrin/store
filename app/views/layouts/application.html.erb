@@ -28,8 +28,12 @@
     <% end %>
     <nav class="nav-rails">
       <%= link_to "Home", root_path, class:"nav-link" %>
-      <%= button_to "Log out", session_path, method: :delete, class:"nav-link" if authenticated? %>
-      <%= link_to "Login", new_session_path, class:"nav-link" unless authenticated? %>
+      <% if authenticated? %>
+        <%= link_to "Edit User", edit_user_path(current_user), class: "nav-link" %>
+        <%= button_to "Log out", session_path, method: :delete, class: "nav-link" %>
+      <% else %>
+        <%= link_to "Login", new_session_path, class:"nav-link" %>
+      <% end %>
     </nav>
     <main>
       <%= yield %>
