@@ -33,7 +33,11 @@
       <div class="user-menu nav-link" data-controller="dropdown">
           <% if authenticated? %>
             <button class="user-icon" id="userMenuButton" data-action="click->dropdown#toggle click@window->dropdown#hide">
-              <i class="fas fa-user-circle"></i>
+              <% if current_user.featured_image.nil? %>
+                <i class="fas fa-user-circle"></i>
+              <% else %>
+                <%= image_tag current_user.featured_image %>
+              <% end %>
             </button>
             <div class="dropdown-content" id="userDropdown" data-dropdown-target="menu">
               <p class= "name"><%= current_user.name %></p>

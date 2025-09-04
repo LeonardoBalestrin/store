@@ -85,14 +85,31 @@ body {
 }
 
 .user-icon {
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: var(--rails-light);
   cursor: pointer;
   font-size: 1.5rem;
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 50%;
   transition: background-color 0.3s ease;
+}
+
+.user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-icon i {
+    font-size: 24px;
+    color: #666; /* Cor do ícone */
 }
 
 .dropdown-content {

@@ -23,6 +23,18 @@
       <%= form.password_field :password_confirmation %>
     </div>
   </div>
+
+  <div class="form-field-flex">
+    <%= image_tag @user.featured_image if @user.featured_image.persisted? %>
+    <%= form.label :featured_image %>
+    <%= form.file_field :featured_image, accept: "image/*" %>
+  </div>  
+
+  <div>
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+  
   <div>
     <%= form.submit %>
   </div>

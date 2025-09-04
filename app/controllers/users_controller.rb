@@ -36,6 +36,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def user_params
-    params.expect(user: [ :email_address, :password, :password_confirmation, :name ])
+    params.expect(user: [ :email_address, :password, :password_confirmation, :name, :featured_image, :description ])
   end
 end
