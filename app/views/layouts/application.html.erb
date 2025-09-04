@@ -27,13 +27,25 @@
       <div class="notice"><%= notice %></div> 
     <% end %>
     <nav class="nav-rails">
-      <%= link_to "Home", root_path, class:"nav-link" %>
-      <% if authenticated? %>
-        <%= link_to "Edit User", edit_user_path(current_user), class: "nav-link" %>
-        <%= button_to "Log out", session_path, method: :delete, class: "nav-link" %>
-      <% else %>
-        <%= link_to "Login", new_session_path, class:"nav-link" %>
-      <% end %>
+      <div class="nav-links">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </div>
+      <div class="user-menu nav-link" data-controller="dropdown">
+          <% if authenticated? %>
+            <button class="user-icon" id="userMenuButton" data-action="click->dropdown#toggle click@window->dropdown#hide">
+              <i class="fas fa-user-circle"></i>
+            </button>
+            <div class="dropdown-content" id="userDropdown" data-dropdown-target="menu">
+              <p class= "name"><%= current_user.name %></p>
+              <%= link_to "Account Info", edit_user_path(current_user), class: "dropdown-item" %>
+              <%= button_to "Log out", session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          <% else %>
+            <%= link_to new_session_path, class: "user-icon" do %>
+              <i class="fas fa-user-circle"></i>
+            <% end %>
+          <% end %>
+        </div>
     </nav>
     <main>
       <%= yield %>
